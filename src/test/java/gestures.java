@@ -1,9 +1,12 @@
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.WebElement;
 
 import java.net.MalformedURLException;
+import static io.appium.java_client.touch.TapOptions.tapOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
+
 
 public class gestures extends base {
     public static void main(String[] args) throws MalformedURLException {
@@ -11,7 +14,10 @@ public class gestures extends base {
         AndroidDriver<AndroidElement> driver = Capabilities();
         driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
 
-        TouchActions touch = new TouchActions(driver);
+        TouchAction t = new TouchAction(driver);
+
+        WebElement expandList = driver.findElementByXPath("//android.widget.TextView[@text='Expandable Lists']");
+        t.tap(tapOptions().withElement(element(expandList))).perform();
 
     }
 }
