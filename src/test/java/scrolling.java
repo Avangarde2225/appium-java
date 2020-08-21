@@ -11,6 +11,8 @@ public class scrolling extends base {
 
         driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
 
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView\"));");
+
 
     }
 }
